@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>환영합니다</title>
+    <style>
+        html, body {
+            margin: 0 auto;
+            width: 100vw;
+            height: 100vh;
+            cursor: pointer;
+        }
+
+        .section {
+            height: 100%;
+            width: 100%;
+            background-image: url("images/원형관.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .fadein {
+            animation: fadein 8s;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .next {
+            width: 10vw auto;
+            height: 5vh auto;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: white;
+            text-align: center;
+            margin-top: 81vh;
+            margin-left: 42vw;
+            margin-right: 42vw;
+            position: relative;
+        }
+    </style>
+
+    <script>
+        function plink() {
+            window.open('WS2022_02분반_6조_웹기획서.pdf')
+            location.href = 'page2.html';
+            
+        }
+    </script>
+</head>
+
+<body>
+    <div class="section fadein">
+        <button class="next" type="submit" onclick="plink()">Web Technology 2분반 6조 기획서</button>
+    </div>
+
+</body>
+</html>

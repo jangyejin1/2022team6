@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>CAU A&T Select</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            cursor: pointer;
+        }
+
+        div {
+            width: 100vw;
+            height: 100vh;
+            background-image: url("images/선택페이지.JPG");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        button {
+            width: 5vw auto;
+            height: 5vh auto;
+            cursor: pointer;
+            border-radius: 1vw;
+            text-align: center;
+            font-size: 5vw;
+        }
+        .skip {
+            background-color: white;
+            position: absolute;
+            margin-top: 80vh;
+        }
+
+        .start {
+            background-color: white;
+            position: relative;
+            margin-left: 10vw;
+            margin-top: 80vh;
+            margin-right: 1vw;
+        }
+    </style>
+
+    <script>
+        function skip() {
+            location.href = 'page4.html';
+        }
+
+        function start() {
+            location.href = 'page3.html';
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button class="start" type="button" onclick="start()">start</button>
+        <button class="skip" type="button" onclick="skip()">skip</button>
+    </div>
+
+</body>
+</html>
