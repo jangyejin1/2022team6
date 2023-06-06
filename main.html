@@ -1,53 +1,492 @@
 ﻿<!DOCTYPE html>
-
-<html>
-
+<html lang="ko">
 <head>
+    <meta charset="utf-8">
+    <title> CAU A&T 홍보 웹사이트</title>
+    <meta name="Keywords" content="중앙대학교, 중앙대, 예술공학">
+    <meta name="Description" content="중앙대학교, 중앙대, 예술공학">
+    <meta name="Date" content="2022-06-14T14:39:37+09:00">
 
-    <title>CAU A&T main</title>
 
-    <style>
-        #menubar {
-            background: blue;
+<style>
+	body {
+	overflow-x: hidden;
+	background-color: black;
+	margin: 0;
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+
+<!--header css -->
+<style>
+        .opening {
+			width: 100vw;
+			height: 100vh;
+			position: cover;
+            min-height: 100%;
+            background-image: url("img/navy_background.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: whitesmoke;
+        }
+		
+		.top {
+			padding-top: 5em;	
+		}
+        .intro_letter_show {
+            margin: 0px;
+            width: 100%;
+            height: 100%;
+
+			padding-left: 50px;							
+            background-image: url("img/letter_background.jpg");
+            background-size: cover;
+            background-repeat: repeat;
+            background-position: center center;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 130px; /*폰트사이즈 설정*/
+            font-weight: bold;
+        }
+		
+        /*예공 홈페이지 이동버튼 생성*/
+        .button {
+            border-radius: 4px;
+            background-color: #0C0036;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 400px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
         }
 
-            #menubar ul { /* 여백과 패딩 모두 0 */
-                margin: 0;
-                padding: 0;
-                width: 567px;
-                /* 모든 아이템(<li>)을 한 줄에 품을 수 있는 폭 */
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
             }
 
-                #menubar ul li {
-                    display: inline-block; /* 새 줄로 넘어가지 않게 */
-                    list-style-type: none; /* 마커 삭제 */
-                    padding: 0px 15px;
-                    /* top=bottom=0, left=right=15px */
+                .button span:after {
+                    content: '\00bb';
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -20px;
+                    transition: 0.5s;
                 }
 
-                    #menubar ul li a {
-                        color: white;
-                        text-decoration: none; /* 링크 보이지 않게 */
-                    }
+            .button:hover span {
+                padding-right: 25px;
+            }
 
-                        #menubar ul li a:hover {
-                            color: black; /* 마우스 올라 갈 때 색 */
-                        }
-    </style>
+                .button:hover span:after {
+                    opacity: 1;
+                    right: 0;
+                }
+        /*글자가 올라가는 애니메이션*/
+        .parent {
+            height: 12em; /* 애니메이션 높이 */
+            overflow-y: hidden;
+            display: block;
+            overflow-x: hidden
+        }
 
+            .parent .child {
+                font-size: 10em; /* 애니메이션 높이 */
+                font-weight: bold;
+                animation-name: grow;
+                animation-duration: 3s; /* 애니메이션 시간 */
+            }
+        /* 키프레임 애니메이션 */
+        @keyframes grow {
+            from {
+                transform: translateY(3em)
+            }
+            /* 애니메이션 높이 */
+            to {
+                transform: translateY(0)
+            }
+        }
+</style>
+
+<!--header2 css -->
+<style>
+div.aboutAnT{
+font-family:serif;
+width: 100vw;
+height: 100vh;
+positon:cover;
+background-image: url("img/info_background.png");
+background-position: center center;
+background-size: cover;
+}
+
+div.con{
+
+position: relative;
+top:40%;
+left:45%;
+width:40%;
+display: block;
+color: white;
+}
+
+</style>
+
+<!-- nav css -->
+<style> 
+#navbar {
+  overflow: hidden;
+  background-color: #333; }
+  
+#navbar a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 50px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+float: left;
+  background-color: #333;
+
+  color: white;
+  text-align: left;}
+  
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+</style>
+
+<!-- curriculum -->
+<style>
+        .container {
+            position: relative;
+            width: 33.33333%;
+            float: left;
+        }
+
+
+        .image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            
+        }
+
+        .container:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+</style>
+
+<!-- FAQ css -->
+<style>
+.content {
+  padding-left: 10em;
+  padding-right: 10em;
+  padding-bottom: 5em;
+  }
+  
+.introduce_picture {
+  position: relative;
+  top:100px
+  right: 0;
+  width: 50%;
+  background-color: cyan;
+}
+.introduce_text {
+  position: relative;
+  top:100px
+  left: 0;
+  width: 50%;
+  background-color: cyan;
+}
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+</style>
+
+<!-- footer css -->
+<style>
+.footer {
+  background-color: #333;
+  padding: 70px;
+  padding-left: 100px;
+  color : white;
+  
+}
+
+.caulogo{
+	float: left;
+	
+	
+}
+
+</style>
+
+<!-- iframe css -->
+<style>
+iframe {
+padding-top:6em;
+width:100%;
+height:50em;
+overflow:hidden;
+}
+</style>
 </head>
 
 <body>
 
-    <nav id="menubar">
-        <ul>
-            <li><a href="#">학과소개</a></li>
-            <li><a href="#">교수소개</a></li>
-            <li><a href="#">커리큘럼</a></li>
-            <li><a href="#">시설물</a></li>
-            <li><a href="#">FAQ</a></li>
-        </ul>
-    </nav>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid position-relative p-0">
+        <div id="navbar">
+			<a class="active" href="main.html">
+				<span> CAU A&T </span>
+			</a>
+
+            <a href="#section5" class="nav-item nav-link">FAQ</a>	
+            <a href="#section4" class="nav-item nav-link">시설물</a>		
+            <a href="#section3" class="nav-item nav-link">커리큘럼</a>	
+            <a href="#section2" class="nav-item nav-link">교수소개</a>			
+            <a href="#section1" class="nav-item nav-link">학과소개</a>
+
+
+
+
+	
+        </div>
+		
+		<script>
+			window.onscroll = function() {myFunction()};
+
+			var navbar = document.getElementById("navbar");
+			var sticky = navbar.offsetTop;
+
+			function myFunction() {
+			  if (window.pageYOffset >= sticky) {
+				navbar.classList.add("sticky")
+			  } else {
+				navbar.classList.remove("sticky");
+			  }
+			}
+		</script>
+	</div>		
+</nav>
+
+<header class="header">
+    <a id ="section1">
+		<div class="opening">
+			<div class="top">
+				<div class="parent">
+					<div class="child">
+						<div class="intro_letter_show">  
+						중앙대
+						</div>
+					</div>
+				</div>
+
+				<div class="parent">
+					<div class="child">
+						<div class="intro_letter_show">  
+						예술공학대학
+						</div>
+					</div>
+				</div>
+
+				<div class="parent">
+					<div class="child">
+						<div class="intro_letter_show" style="font-size:40px;">
+						CAU Art & Technology
+						</div>
+					</div>
+				</div>
+			</div>	
+
+				<div style="position:center; padding-left:3em;">
+					<button class="button" onclick="window.open('http://artech.cau.ac.kr/#')"><span>홈페이지 바로가기 </span></button>
+					<button class="button" onclick="window.open('https://www.cau.ac.kr/cms/FR_CON/index.do?MENU_ID=940')"><span> 대학소개 바로가기 </span></button>
+				</div>
+		
+		</div>
+		
+	<div class="aboutAnT">
+			<div class="con">
+            <p style="font-size: 25px;">중앙대학교 예술공학대학은 프로젝트를 통한 교육을 통해 인문학적 상상력과 예술적 감수성, 공학적 적용 능력을 통한 유연한 사고를 바탕으로 새 시대를 함께할 예술공학인을 찾고 있다.</p>
+			</div>
+    </div>
+	</a>
+	
+</header>	
+
+<section class="professor">	
+
+	<a id = "section2" >
+
+		<iframe src="pro.html" frameborder="0"> </iframe>
+	</a>
+</section>
+
+<section class="curriculum">
+	<a id = "section3">
+		<div class="container" onclick="location.href='CGD.html'">
+			<img src="img/curi1.jpg" alt="Avatar" class="image">
+			<div class="overlay" style="background-color: #000033;">
+				<div class="text">게임 개발 트랙(CGD)</div>
+			</div>
+		</div>
+
+		<div class="container" onclick="location.href='DFX.html'">
+			<img src="img/curi2.jpg" alt="Avatar" class="image">
+			<div class="overlay" style="background-color: #330033;">
+				<div class="text">영화 특수 트랙(DFX) </div>
+			</div>
+		</div>
+
+		<div class="container" onclick="location.href='CGA.html'">
+			<img src="img/curi3.jpg" alt="Avatar" class="image">
+			<div class="overlay" style="background-color: #003333;">
+				<div class="text">디지털 아트 트랙(CGA)</div>
+			</div>
+		</div>
+		
+    </a>
+</section>
+
+<section class="floor">
+	<a id = "section4">
+		<iframe src="flo.html" frameborder="0" > </iframe>
+	</a>
+</section>
+
+<section class="FAQ">
+	<a id = "section5">
+	<div class="content">
+		<h2 style="padding-left: 3em; color: white;" >FAQ</h2>
+
+		<button class="accordion">Q. 입학 정원은 총 몇 명인가요?</button>
+		<div class="panel" style="display: none;">
+		  <p>22학번 기준 133명(정시55+수시 78)입니다.</p>
+		</div>
+
+		<button class="accordion">Q. 총 학과 인원수는 어느 정도인가요?</button>
+		<div class="panel">
+		  <p>약 430명입니다.</p>
+		</div>
+
+		<button class="accordion">Q. 입학 전 어떤 공부를 하면 좋을까요?</button>
+		<div class="panel">
+		  <p>코딩 공부를 하시는 것을 추천 드립니다. 예술공학에서 시행되는 대부분의 프로젝트에서는 코딩이 베이스가 됩니다. 또한 예술적인 소양을 기르기 위해 다양한 전시회를 가보는 것을 추천합니다.</p>
+		</div>
+		
+		<button class="accordion">Q. 남녀 성비는 어떻게 되나요?</button>
+		<div class="panel">
+		  <p>대략 1:1 정도입니다.</p>
+		</div>
+		
+		<button class="accordion">Q. 문과나 예체능 학생도 지원가능한가요?</button>
+		<div class="panel">
+		  <p>수시의 경우 예술공학대학에서는 문과나 예체능 학생의 교차지원을 허용합니다. 정시의 경우 수학영역에서 미적분과 기하 중 택1, 과학 8과목 중 택 2를 해야 합니다.</p>
+		</div>
+
+		<button class="accordion">Q. 컴퓨터 사양이 중요할까요?</button>
+		<div class="panel">
+		  <p>간단한 코딩같은 경우에는 대부분의 노트북으로 가능하지만 어도비 프로그램이나 3D같은 무거운 툴을 다룰 때는 컴퓨터의 사양이 중요합니다.</p>
+		</div>
+
+		<script>
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+		  acc[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var panel = this.nextElementSibling;
+			if (panel.style.display === "block") {
+			  panel.style.display = "none";
+			} else {
+			  panel.style.display = "block";
+			}
+		  });
+		}
+		</script>
+	</div>
+	</a>
+</section>
+
+<footer class="footer">
+	<div class="foot">
+		<div class="caulogo">
+			<img src="img/caulogo.png">
+		</div>
+		<dd class="foot-txt">
+			경기도 안성시 대덕면 서동대로 4726   <a href="https://www.cau.ac.kr/cms/FR_CON/index.do?MENU_ID=610" target="_blank" class="foot-map" style="color: white;">오시는 길</a>
+		<br>
+			 Tel : 031.670-3182 
+		</dd>
+	</div>
+</footer>
 
 </body>
 
